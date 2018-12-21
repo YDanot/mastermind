@@ -1,4 +1,4 @@
-#Kata Mastermind
+# Kata Mastermind
 Difficulty: medium
 
 Have you ever played Mastermind ? This game where one player, a codemaker, has to choose a secret combination of colored pegs and then make it guess to someone else, a codebreaker. The codemaker is answering to each guess attempt of the codebreaker by indicating only the number of well placed colors and the number of correct but misplaced colors.
@@ -14,7 +14,7 @@ the number of well placed colors
 the number of correct but misplaced colors
 A combination can contain any number of pegs but you’d better give the same number for the secret and the guessing. You can use any number of colors.
 
-#Clues
+# Clues
 It’s better to start by detecting well placed colors.
 Detecting misplaced colors is about counting them…
 Suggested Test Cases
