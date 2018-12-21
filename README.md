@@ -12,17 +12,6 @@ Therefore, your function should return, for a secret and a guessing combination:
 
 the number of well placed colors
 the number of correct but misplaced colors
+
+#### To go further
 A combination can contain any number of pegs but you’d better give the same number for the secret and the guessing. You can use any number of colors.
-
-# Clues
-It’s better to start by detecting well placed colors.
-Detecting misplaced colors is about counting them…
-Suggested Test Cases
-For a secret [blue, red, green, pink] and a guess [yellow, red, blue, purple] the answer should be : 1 well placed and 1 misplaced.
-
-Some other basic examples:
-
-evaluate([blue], [red]) should return [0, 0]  
-evaluate([blue], [blue]) should return [1, 0]  
-evaluate([red, yellow], [blue, red]) should return [0, 1]  
-Take care to start simple and choose wisely the following tests in order to have a nice TDD progression…
