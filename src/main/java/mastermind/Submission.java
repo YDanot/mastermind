@@ -15,17 +15,13 @@ public class Submission {
 
     public Answer answer() {
         int misplaced = 0;
-        int correct = 0;
-        final List<Token> incorrectTokens = incorrect();
+        final List<Token> incorrectTokens = incorrectTokensInSecretCombination();
+        int correct = secret.size() - incorrectTokens.size();
         for (int i = 0; i < secret.tokens().size(); i++) {
-            if (correctlyPlacedAtPosition(i)) {
-                correct++;
-            } else {
-                final Token submit = submitted.tokens().get(i);
-                if (incorrectTokens.contains(submit)) {
-                    misplaced++;
-                    incorrectTokens.remove(submit);
-                }
+            final Token submit = submitted.tokens().get(i);
+            if (!correctlyPlacedAtPosition(i) && incorrectTokens.contains(submit)) {
+                misplaced++;
+                incorrectTokens.remove(submit);
             }
         }
 
@@ -36,15 +32,15 @@ public class Submission {
         return secret.tokens().get(i) == submitted.tokens().get(i);
     }
 
-    private List<Token> incorrect() {
-        List<Token> correctTokens = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
+    private List<Token> incorrectTokensInSecretCombination() {
+        List<Token> incorrectTokens = new ArrayList<>();
+        for (int i = 0; i < secret.size(); i++) {
             final Token secretToken = secret.tokens().get(i);
             final Token submit = submitted.tokens().get(i);
             if (!secretToken.equals(submit)) {
-                correctTokens.add(secretToken);
+                incorrectTokens.add(secretToken);
             }
         }
-        return correctTokens;
+        return incorrectTokens;
     }
 }

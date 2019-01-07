@@ -1,9 +1,5 @@
 package mastermind;
 
-import mastermind.Answer;
-import mastermind.Combination;
-import mastermind.Submission;
-
 public class MasterMind {
 
     private final Combination secret;

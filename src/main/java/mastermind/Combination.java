@@ -20,6 +20,10 @@ public class Combination {
         return new Combination(token1, token2, token3, token4);
     }
 
+    public int size() {
+        return tokens.size();
+    }
+
     @Override
     public String toString() {
         return "Combination{" +
