@@ -19,7 +19,7 @@ public class Submission {
         int correct = secret.size() - incorrectTokens.size();
         for (int i = 0; i < secret.tokens().size(); i++) {
             final Token submit = submitted.tokens().get(i);
-            if (!correctlyPlacedAtPosition(i) && incorrectTokens.contains(submit)) {
+            if (misplacedAtPosition(i) && incorrectTokens.contains(submit)) {
                 misplaced++;
                 incorrectTokens.remove(submit);
             }
@@ -28,8 +28,8 @@ public class Submission {
         return new Answer(correct, misplaced);
     }
 
-    private boolean correctlyPlacedAtPosition(int i) {
-        return secret.tokens().get(i) == submitted.tokens().get(i);
+    private boolean misplacedAtPosition(int i) {
+        return secret.tokens().get(i) != submitted.tokens().get(i);
     }
 
     private List<Token> incorrectTokensInSecretCombination() {
